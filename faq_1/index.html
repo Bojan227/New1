@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    html {
+      overflow: scroll;
+    }
+
+    :root {
+      --soft-violet: hsl(273, 75%, 66%);
+      --soft-blue: hsl(240, 73%, 65%);
+      --soft-red: hsl(14, 88%, 65%);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    body {
+      font-family: 'Kumbh Sans', sans-serif;
+      background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      /* width: 930px; */
+      display: flex;
+      /* display: grid;
+      grid-template-columns: repeat(2, 1fr); */
+      background-color: white;
+      border-radius: 20px;
+      margin: 25px;
+      padding: 25px 0;
+
+    }
+
+
+    .container>* {
+      flex: 1 1 100%;
+    }
+
+    .image-container {
+      position: relative;
+      padding: 50px 0;
+      z-index: 0;
+    }
+
+    .sec-img {
+      z-index: -1;
+      position: absolute;
+      top: -300px;
+      left: -547px;
+
+    }
+
+    .outer {
+      position: absolute;
+      top: 190px;
+      left: -90px;
+
+
+    }
+
+    .unordered {
+      list-style-type: none;
+
+    }
+
+    .inner {
+      overflow: hidden;
+    }
+
+    .inner picture {
+      margin-left: -60px;
+    }
+
+    .faq-container {
+      padding: 23px;
+      padding-bottom: 28px;
+      margin-left: -65px;
+      margin-right: 28px;
+      margin-bottom: 4px;
+
+    }
+
+    .question {
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+
+
+
+    .faq-container h2 {
+      color: hsl(238, 29%, 16%);
+      font-size: 28px;
+      padding-bottom: 30px;
+      font-weight: bold;
+    }
+
+
+    .question h4 {
+      font-size: 15px;
+      padding-top: 13px;
+      color: hsl(240, 6%, 50%);
+      transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+      ;
+
+
+    }
+
+    .question h4:hover {
+      color: hsl(14, 88%, 65%);
+    }
+
+    .answer p {
+      color: hsl(240, 6%, 50%);
+      padding: 10px 20px;
+      padding-right: 30px;
+      padding-left: 0;
+      padding-bottom: 10px;
+      transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    }
+
+    span {
+      float: right;
+    }
+
+    li {
+      border-bottom: 1px solid hsl(240, 5%, 91%);
+    }
+
+    .question .icon {
+      transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    }
+
+    .answer {
+      overflow: hidden;
+      max-height: 0;
+
+      font-size: 14px;
+      transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    }
+
+    .faq-container li.open .answer {
+      max-height: 150px;
+
+    }
+
+    .faq-container li.open .question .icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-container li.open .question h4 {
+      color: black;
+    }
+
+    @media (max-width: 40em) {
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      .container {
+
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        margin: 13px;
+
+
+
+      }
+
+      .outer img {
+        display: none;
+      }
+
+      .faq-container h2 {
+        text-align: center;
+      }
+
+      .faq-container {
+        padding: 0px;
+        margin: 70px -6px;
+      }
+
+      .image-container {
+        position: relative;
+        padding: 5px 0;
+
+      }
+
+      .inner picture {
+        position: absolute;
+        top: -145px;
+        left: 68px
+      }
+
+
+
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="image-container">
+      <div class="inner">
+        <picture>
+          <source srcset="./images/illustration-woman-online-mobile.svg" media="(max-width: 890px)">
+          <img src="./images/illustration-woman-online-desktop.svg" alt="">
+        </picture>
+        <picture>
+          <source srcset="./images/bg-pattern-mobile.svg" media="(max-width: 890px)">
+          <img class='sec-img' src="./images/bg-pattern-desktop.svg" alt="">
+        </picture>
+      </div>
+      <div class="outer">
+        <img src="./images/illustration-box-desktop.svg" alt="">
+      </div>
+    </div>
+
+    <div class="faq-container">
+      <h2>FAQ</h2>
+
+      <ul class="unordered">
+        <li>
+          <div class="question">
+            <h4>How many team members can I invite? <span>
+                <img src="./images/icon-arrow-down.svg" alt="" class="icon">
+              </span>
+            </h4>
+
+          </div>
+          <div class="answer">
+            <p>You can invite up to 2 additional users on the Free plan. There is no limit on
+              team members for the Premium plan.</p>
+        </li>
+        <li>
+          <div class="question">
+            <h4>What is the maximum file upload size?
+              <span>
+                <img src="./images/icon-arrow-down.svg" alt="" class="icon">
+              </span>
+            </h4>
+
+          </div>
+          <div class="answer">
+            <p>No more than 2GB. All files in your account must fit your allotted storage space.</p>
+          </div>
+        </li>
+        <li>
+          <div class="question">
+            <h4>How do I reset my password?
+              <span>
+                <img src="./images/icon-arrow-down.svg" alt="" class="icon">
+              </span>
+            </h4>
+
+          </div>
+          <div class="answer">
+            <p>Click “Forgot password” from the login page or “Change password” from your profile page.
+              A reset link will be emailed to you.</p>
+          </div>
+        </li>
+        <li>
+          <div class="question">
+            <h4>Can I cancel my subscription?
+              <span>
+                <img src="./images/icon-arrow-down.svg" alt="" class="icon">
+              </span>
+            </h4>
+          </div>
+          <div class="answer">
+            <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
+          </div>
+        </li>
+        <li>
+          <div class="question">
+            <h4>Do you provide additional support?
+              <span>
+                <img src="./images/icon-arrow-down.svg" alt="" class="icon">
+              </span>
+            </h4>
+          </div>
+          <div class="answer">
+            <p>Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    const accordion = document.querySelector('.faq-container');
+    const items = accordion.querySelectorAll('li');
+    const questions = accordion.querySelectorAll('.question')
+
+    function toggleQuestion() {
+      thisItem = this.parentNode;
+
+      items.forEach(item => {
+        if (thisItem == item) {
+          thisItem.classList.toggle('open');
+          return;
+        }
+        item.classList.remove('open');
+      })
+
+    }
+
+
+    questions.forEach(question => question.addEventListener('click', toggleQuestion));
+
+  </script>
+
+</body>
+
+</html>
